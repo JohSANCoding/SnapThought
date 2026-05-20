@@ -11,6 +11,11 @@
 *.sln.docstates
 *.env
 
+# SnapThought local SQLite database (created at runtime)
+snapthought.db
+snapthought.db-shm
+snapthought.db-wal
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
