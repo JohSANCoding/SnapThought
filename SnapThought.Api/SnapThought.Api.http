@@ -1,6 +1,21 @@
 @SnapThought.Api_HostAddress = http://localhost:5287
 
-GET {{SnapThought.Api_HostAddress}}/weatherforecast/
+### Capture a thought (raw content + optional tags) -> reformat -> store
+# @name capture
+POST {{SnapThought.Api_HostAddress}}/api/snapthoughts
+Content-Type: application/json
+
+{
+  "content": "ok so the idea is basically capture a thought fast like a snap, tag it, and the machine cleans it up later",
+  "tags": ["idea", "product"]
+}
+
+### Retrieve the thought just captured (uses the id from the response above)
+GET {{SnapThought.Api_HostAddress}}/api/snapthoughts/{{capture.response.body.id}}
+Accept: application/json
+
+### List all stored thoughts (newest first)
+GET {{SnapThought.Api_HostAddress}}/api/snapthoughts
 Accept: application/json
 
 ###
